@@ -4,8 +4,14 @@ const users = require('./routes/api/users')
 const posts = require('./routes/api/posts')
 const profile = require('./routes/api/profile') 
 const app = express()
+var fs = require('fs')
+var morgan = require('morgan')
 const keys = require('./config/keys')
 
+var accessLogStream = fs.createWriteStream(__dirname + '/access.log', {flags: 'a'})
+
+// setup the logger
+app.use(morgan('combined', {stream: accessLogStream}))
 
 
 //Db Config
