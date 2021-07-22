@@ -17,9 +17,13 @@ app.use(morgan('combined', {stream: accessLogStream}))
 //Db Config
 const db = keys.mongoUrl
 mongoose
-    .connect(db)
+    .connect(db,{useNewUrlParser:true},{useUnifiedTopology:true})
     .then(() => console.log("Connected to db"))
     .catch(err => console.log(err))
+
+
+app.use(express.json())
+//app.use(morgan("combined"))
 
 
 //Routes
