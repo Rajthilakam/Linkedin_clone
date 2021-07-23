@@ -13,8 +13,14 @@ const Userschema = new Schema({
     },
     password: {
         type:String,
-        required:true,
-        
+        required:true,       
+    },
+    avatar:{
+        type:String
+    },
+    date:{
+        type:Date,
+        default:Date.now
     }
     
 })
