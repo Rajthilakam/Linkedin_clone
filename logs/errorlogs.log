@@ -1,0 +1,103 @@
+error: Jul-23-2021 22:36:57: 	testing
+error: Jul-23-2021 22:36:59: 	testing
+error: Jul-23-2021 22:37:40: 	testing
+error: Jul-23-2021 22:37:45: 	testing
+error: Jul-23-2021 22:37:52: 	testing
+error: Jul-23-2021 22:38:03: 	testing
+error: Jul-23-2021 22:38:10: 	testing
+error: Jul-23-2021 22:39:21: 	Error while connecting Mongodb
+error: Jul-23-2021 22:40:13: 	MongoNetworkError: failed to connect to server [cluster0-shard-00-00.hzcup.mongodb.net:27017] on first connect [MongoError: bad auth : Authentication failed.
+    at Connection.messageHandler (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:362:19)
+    at Connection.emit (events.js:315:20)
+    at processMessage (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:454:10)
+    at TLSSocket.<anonymous> (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:623:15)
+    at TLSSocket.emit (events.js:315:20)
+    at addChunk (internal/streams/readable.js:309:12)
+    at readableAddChunk (internal/streams/readable.js:284:9)
+    at TLSSocket.Readable.push (internal/streams/readable.js:223:10)
+    at TLSWrap.onStreamRead (internal/stream_base_commons.js:188:23) {
+  ok: 0,
+  code: 8000,
+  codeName: 'AtlasError'
+}]
+info: Jul-23-2021 22:46:21: 	Server started and running on 5000
+info: Jul-23-2021 22:46:40: 	Server started and running on 5000
+error: Jul-23-2021 22:46:41: 	MongoNetworkError: failed to connect to server [cluster0-shard-00-01.hzcup.mongodb.net:27017] on first connect [MongoError: bad auth : Authentication failed.
+    at Connection.messageHandler (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:362:19)
+    at Connection.emit (events.js:315:20)
+    at processMessage (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:454:10)
+    at TLSSocket.<anonymous> (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:623:15)
+    at TLSSocket.emit (events.js:315:20)
+    at addChunk (internal/streams/readable.js:309:12)
+    at readableAddChunk (internal/streams/readable.js:284:9)
+    at TLSSocket.Readable.push (internal/streams/readable.js:223:10)
+    at TLSWrap.onStreamRead (internal/stream_base_commons.js:188:23) {
+  ok: 0,
+  code: 8000,
+  codeName: 'AtlasError'
+}]
+info: Jul-23-2021 22:47:10: 	Server started and running on 5000
+error: Jul-23-2021 22:47:11: 	MongoNetworkError: failed to connect to server [cluster0-shard-00-01.hzcup.mongodb.net:27017] on first connect [MongoError: bad auth : Authentication failed.
+    at Connection.messageHandler (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:362:19)
+    at Connection.emit (events.js:315:20)
+    at processMessage (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:454:10)
+    at TLSSocket.<anonymous> (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:623:15)
+    at TLSSocket.emit (events.js:315:20)
+    at addChunk (internal/streams/readable.js:309:12)
+    at readableAddChunk (internal/streams/readable.js:284:9)
+    at TLSSocket.Readable.push (internal/streams/readable.js:223:10)
+    at TLSWrap.onStreamRead (internal/stream_base_commons.js:188:23) {
+  ok: 0,
+  code: 8000,
+  codeName: 'AtlasError'
+}]
+info: Jul-23-2021 22:47:25: 	Server started and running on 5000
+error: Jul-23-2021 22:47:27: 	MongoNetworkError: failed to connect to server [cluster0-shard-00-02.hzcup.mongodb.net:27017] on first connect [MongoError: bad auth : Authentication failed.
+    at Connection.messageHandler (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:362:19)
+    at Connection.emit (events.js:315:20)
+    at processMessage (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:454:10)
+    at TLSSocket.<anonymous> (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:623:15)
+    at TLSSocket.emit (events.js:315:20)
+    at addChunk (internal/streams/readable.js:309:12)
+    at readableAddChunk (internal/streams/readable.js:284:9)
+    at TLSSocket.Readable.push (internal/streams/readable.js:223:10)
+    at TLSWrap.onStreamRead (internal/stream_base_commons.js:188:23) {
+  ok: 0,
+  code: 8000,
+  codeName: 'AtlasError'
+}]
+info: Jul-23-2021 22:48:11: 	Server started and running on 5000
+info: Jul-23-2021 22:49:00: 	Server started and running on 5000
+info: Jul-23-2021 22:49:05: 	Server started and running on 5000
+info: Jul-23-2021 22:49:08: 	Server started and running on 5000
+info: Jul-23-2021 22:49:10: 	Server started and running on 5000
+info: Jul-23-2021 22:49:19: 	Server started and running on 5000
+info: Jul-23-2021 22:49:20: 	
+info: Jul-23-2021 22:49:28: 	Server started and running on 5000
+info: Jul-23-2021 22:49:28: 	Connection to the 
+info: Jul-23-2021 22:49:30: 	Server started and running on 5000
+info: Jul-23-2021 22:49:31: 	Connection to 
+info: Jul-23-2021 22:49:36: 	Server started and running on 5000
+info: Jul-23-2021 22:49:40: 	Server started and running on 5000
+info: Jul-23-2021 22:49:41: 	Connected to MOngodb
+info: Jul-23-2021 22:49:44: 	Server started and running on 5000
+info: Jul-23-2021 22:49:45: 	Connected to Mongodb
+info: Jul-23-2021 22:50:21: 	Server started and running on 5000
+info: Jul-23-2021 22:50:21: 	Connected to Mongodb
+info: Jul-23-2021 22:51:35: 	Server started and running on 5000
+info: Jul-23-2021 22:51:36: 	Connected to Mongodb
+info: Jul-23-2021 22:52:28: 	Server started and running on 5000
+error: Jul-23-2021 22:52:29: 	MongoNetworkError: failed to connect to server [cluster0-shard-00-01.hzcup.mongodb.net:27017] on first connect [MongoError: bad auth : Authentication failed.
+    at Connection.messageHandler (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:362:19)
+    at Connection.emit (events.js:315:20)
+    at processMessage (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:454:10)
+    at TLSSocket.<anonymous> (D:\SocialMedia\node_modules\mongodb\lib\core\connection\connection.js:623:15)
+    at TLSSocket.emit (events.js:315:20)
+    at addChunk (internal/streams/readable.js:309:12)
+    at readableAddChunk (internal/streams/readable.js:284:9)
+    at TLSSocket.Readable.push (internal/streams/readable.js:223:10)
+    at TLSWrap.onStreamRead (internal/stream_base_commons.js:188:23) {
+  ok: 0,
+  code: 8000,
+  codeName: 'AtlasError'
+}]

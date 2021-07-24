@@ -3,6 +3,7 @@ const  mongoose = require('mongoose')
 const users = require('./routes/api/users')
 const posts = require('./routes/api/posts')
 const profile = require('./routes/api/profile') 
+const logger = require('./utils/logger')
 
 
 const app = express()
@@ -17,9 +18,15 @@ app.use(morgan('combined', {stream: accessLogStream}))
 //Db Config
 const db = keys.mongoUrl
 mongoose
-    .connect(db,{useNewUrlParser:true},{useUnifiedTopology:true})
-    .then(() => console.log("Connected to db"))
-    .catch(err => console.log(err))
+    .connect(db,{useNewUrlParser:true},
+                {useUnifiedTopology:true})
+    .then(() => {
+        console.log("Connected to db")
+        logger.info("Connected to Mongodb")})
+    .catch(err => {
+        console.log(err)
+        logger.error({message:err})
+    })
 
 app.use(express.urlencoded())
 app.use(express.json())
@@ -38,6 +45,9 @@ app.use('/api/profile',profile)
 
 //Starting a server
 const PORT = 5000
-app.listen(PORT, () => console.log(`Server is running at ${PORT}`))
+app.listen(PORT, () => {
+    console.log('Server started....')
+    logger.info(`Server started and running on ${PORT}`)
+})
 
 //
