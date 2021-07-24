@@ -1,12 +1,9 @@
 const winston = require('winston');
-//const { combine, timestamp, label, prettyPrint } = format;
-
-
 
 const logConfig = {
     transports: [
         new winston.transports.File({
-            //level: 'error',
+            //level: winston.config.syslog.levels,
             filename: 'logs/errorlogs.log'
         })
     ],

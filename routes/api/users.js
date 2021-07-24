@@ -3,12 +3,10 @@ const _route = express.Router()
 const bcrypt  = require ('bcryptjs')
 const User = require('../../models/Users')
 const gravatar = require('gravatar')
+const logger = require('../../utils/logger')
 
 
-//@Routes POST  
-
-const saltrounds = 10
-            
+//@Routes POST              
 _route.post('/register',(req,res) => {
     User.findOne({email:req.body.email})
     .then(user => {
@@ -29,9 +27,6 @@ _route.post('/register',(req,res) => {
                 password:req.body.password,
                 avatar
             })
-
-            console.log(req.body.password)
-
            
             bcrypt.genSalt(10)
             .then((salt) => {
@@ -46,10 +41,14 @@ _route.post('/register',(req,res) => {
                 return newUser.save()
             }) 
 
-            .then(user => res.json(user))
+            .then(user => {
+                res.json(user)
+                logger.info(`User successfully created id:${user._id} email:${user.email}`)            
+            })
 
             .catch(err => {
                 console.log(err)
+                logging.error(`Error while registering new user ${err}`)
                 return {
                     status: 400,
                     message: err
