@@ -3,16 +3,16 @@ const  mongoose = require('mongoose')
 const users = require('./routes/api/users')
 const posts = require('./routes/api/posts')
 const profile = require('./routes/api/profile') 
+
+
 const app = express()
 var fs = require('fs')
 var morgan = require('morgan')
 const keys = require('./config/keys')
 
-var accessLogStream = fs.createWriteStream(__dirname + '/access.log', {flags: 'a'})
-
 // setup the logger
+var accessLogStream = fs.createWriteStream(__dirname + '/access.log', {flags: 'a'})
 app.use(morgan('combined', {stream: accessLogStream}))
-
 
 //Db Config
 const db = keys.mongoUrl
@@ -21,7 +21,7 @@ mongoose
     .then(() => console.log("Connected to db"))
     .catch(err => console.log(err))
 
-
+app.use(express.urlencoded())
 app.use(express.json())
 //app.use(morgan("combined"))
 
