@@ -3,6 +3,8 @@ const _route = express.Router()
 const bcrypt  = require ('bcryptjs')
 const User = require('../../models/Users')
 const gravatar = require('gravatar')
+const jwt = require('jsonwebtoken')
+const keys = require('../../config/keys');
 const logger = require('../../utils/logger')
 
 
@@ -48,7 +50,7 @@ _route.post('/register',(req,res) => {
 
             .catch(err => {
                 console.log(err)
-                logging.error(`Error while registering new user ${err}`)
+                logger.error(`Error while registering new user ${err}`)
                 return {
                     status: 400,
                     message: err
@@ -58,7 +60,7 @@ _route.post('/register',(req,res) => {
         }
     })
 
-    .catch(err => logging.error(`Error while checking user in the register route ${err}`))
+    .catch(err => logger.error(`Error while checking user in the register route ${err}`))
 })
 
 
@@ -66,19 +68,39 @@ _route.post('/login',(req,res) => {
     User.findOne({email:req.body.email})
     .then(user => {
         if(!user) {
-            return res.status(400).json({email:"User is not registered"})
+            return res.status(404).json({email:"User is not registered"})
         }
 
         bcrypt.compare(req.body.password,user.password)
         .then(isMatch => {
             if (isMatch) {
-                return res.json({msg:'User Logged in'})
-            }
+                //return res.json({msg:'User Logged in'})
+                const payload = {
+                    id: user.id,
+                    name: user.name,
+                    avatar: user.avatar
+                  };
+
+                  jwt.sign(
+                      payload,
+                      keys.secretOrKey,
+                      {expiresIn:3600},
+                      (err, token) => {
+                          if (token) {
+                            return res.json({token: 'Bearer ' + token});
+                          } else {
+                              logger.error(`Error in jwt token genration: ${err} `)
+                          }                   
+                      })                   
+                      
+            } else {
             return res.status(400).json({password:"Password didnt match."})
+            }
         })
-        .catch(err => logging.error(`Error in password comparison  ${err}`))
+        .catch(err => logger.error(`Error in password comparison  ${err}`))
+
     })
-    .catch(err => logging.error(`Error while user tries to login ${err}`))
+    .catch(err => logger.error(`Error while user tries to login ${err}`))
 })
 
 module.exports = _route
