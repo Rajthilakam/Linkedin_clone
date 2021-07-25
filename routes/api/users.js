@@ -58,7 +58,27 @@ _route.post('/register',(req,res) => {
         }
     })
 
-    .catch(err => (console.log(err)))
+    .catch(err => logging.error(`Error while checking user in the register route ${err}`))
+})
+
+
+_route.post('/login',(req,res) => {
+    User.findOne({email:req.body.email})
+    .then(user => {
+        if(!user) {
+            return res.status(400).json({email:"User is not registered"})
+        }
+
+        bcrypt.compare(req.body.password,user.password)
+        .then(isMatch => {
+            if (isMatch) {
+                return res.json({msg:'User Logged in'})
+            }
+            return res.status(400).json({password:"Password didnt match."})
+        })
+        .catch(err => logging.error(`Error in password comparison  ${err}`))
+    })
+    .catch(err => logging.error(`Error while user tries to login ${err}`))
 })
 
 module.exports = _route
