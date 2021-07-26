@@ -14,8 +14,9 @@ const logConfig = {
            format: 'MMM-DD-YYYY HH:mm:ss'
        }),
        winston.format.align(),
-       winston.format.printf(info => `${info.level}: ${[info.timestamp]}: ${info.message}`),
+       winston.format.printf(info => `${info.level}: ${[info.timestamp]}: ${info.message} `),
     )
+
 };
 
 const logger = winston.createLogger(logConfig);
@@ -29,5 +30,5 @@ const myStream = {
 //app.use(morgan('combined', { stream: myStream }));
 
 module.exports = logger
-exports.name = myStream
+
 

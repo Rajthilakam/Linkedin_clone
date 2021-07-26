@@ -6,9 +6,13 @@ const gravatar = require('gravatar')
 const jwt = require('jsonwebtoken')
 const keys = require('../../config/keys');
 const logger = require('../../utils/logger')
+const passport = require('passport')
 
 
-//@Routes POST              
+//@Routes POST   /api/user/register
+//@desc Registering a user
+//@access Public
+
 _route.post('/register',(req,res) => {
     User.findOne({email:req.body.email})
     .then(user => {
@@ -63,6 +67,9 @@ _route.post('/register',(req,res) => {
     .catch(err => logger.error(`Error while checking user in the register route ${err}`))
 })
 
+//@Routes POST  /api/user/login
+//@desc Login a user
+//@access Public
 
 _route.post('/login',(req,res) => {
     User.findOne({email:req.body.email})
@@ -97,10 +104,21 @@ _route.post('/login',(req,res) => {
             return res.status(400).json({password:"Password didnt match."})
             }
         })
-        .catch(err => logger.error(`Error in password comparison  ${err}`))
+        .catch(err => logger.error(` ${err}`))
 
     })
     .catch(err => logger.error(`Error while user tries to login ${err}`))
+})
+
+
+//@Routes GET    Route
+//@desc Registering a user
+//@access Private
+_route.get('/current',
+    passport.authenticate ('jwt',{session:false}),
+    (req,res) => {
+        res.json(req.user)
+
 })
 
 module.exports = _route
