@@ -29,6 +29,7 @@ _route.post('/register',(req,res) => {
 
             const newUser = new User ({
                 name:req.body.name,
+                lastname:req.body.lastname,
                 email:req.body.email,
                 password:req.body.password,
                 avatar
@@ -49,7 +50,8 @@ _route.post('/register',(req,res) => {
 
             .then(user => {
                 res.json(user)
-                logger.info(`User successfully created id:${user._id} email:${user.email}`)            
+                console.log(user)
+                logger.info(`User successfully created id:${user._id} email:${user.email} name:${user.fullname}`)            
             })
 
             .catch(err => {

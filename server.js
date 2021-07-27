@@ -39,12 +39,15 @@ mongoose
     })
 
 
+
+
+
 //passport config
 app.use(passport.initialize())
 require('./config/passport')(passport)
 
 //Routes
-app.get('/', (req,res) => res.send('Hello WorldLoremhjfvjkfdgiunblkgmbogjkgmbkjgnigrkbrgmiurtngjmfvkjngrjbngjbnjgnbjignbjkgnbjgrnbhfbfbgbnjnbhgbjnjnbnfjkngbnjfnbgbgbjnjknjgnbjfdnbkjnbirurthturijnjnjnrgjnjfnkjfdnvfmvcmvjkcnvjfdggtrughtnvjnfdjvnjkfnj!'))
+app.get('/', (req,res) => res.send('Hello World!'))
 
 
 //Middleware functions
@@ -56,7 +59,6 @@ app.use((req, res, next) => {
     res.status(404).send({
     status: 404,
     error: 'Not found',
-    
     
     })
    })
